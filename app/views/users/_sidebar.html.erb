@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>User info</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= attachment_image_tag @user, :profile_image, size: "80x80", fallback: "no_image.jpg", size: "80x80" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table>
+        <tr>
+          <td>name</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <td>introduction</td>
+          <td><%= @user.introduction %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button>プロフィール設定</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>New book</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_with model: @book, local: true do |f| %>
+      <div class="field">
+        <%= f.label :title, "Title" %><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :opinion, "Opinion" %><br>
+        <%= f.text_area :opinion %>
+      </div>
+      <%= f.submit "Create Book" %>
+    <% end %>
+  </div>
+</div>
+
