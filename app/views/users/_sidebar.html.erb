@@ -11,23 +11,27 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <table>
+      <table class="table">
         <tr>
           <td>name</td>
-          <td><%= @user.name %></td>
+          <td><%= user.name %></td>
         </tr>
         <tr>
           <td>introduction</td>
-          <td><%= @user.introduction %></td>
+          <td><%= user.introduction %></td>
         </tr>
       </table>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <button>プロフィール設定</button>
+  <% if current_user == user %>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= link_to edit_user_path(user) do %>
+          <button>プロフィール設定</button>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
 <div class="row">
   <div class="col-xs-12">
@@ -36,16 +40,16 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <%= form_with model: @book, local: true do |f| %>
-      <div class="field">
+    <%= form_with model: book, local: true do |f| %>
+      <div class="form-group">
         <%= f.label :title, "Title" %><br>
-        <%= f.text_field :title %>
+        <%= f.text_field :title, class:"form-control" %>
       </div>
-      <div class="field">
+      <div class="form-group">
         <%= f.label :opinion, "Opinion" %><br>
-        <%= f.text_area :opinion %>
+        <%= f.text_area :opinion, class: "form-control" %>
       </div>
-      <%= f.submit "Create Book" %>
+      <%= f.submit "Create Book", class:"btn btn-primary btn-block" %>
     <% end %>
   </div>
 </div>

@@ -13,6 +13,9 @@
     <header>
       <% if user_signed_in? %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "ホーム", user_path(current_user) %>
+        <%= link_to "BOOKS", books_path %>
+        <%= link_to "USERS", users_path %>
       <% end %>
     </header>
     <%= yield %>

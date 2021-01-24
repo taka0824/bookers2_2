@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <h2>Editting Book</h2>
+      <%= form_with model: @book, local: true do |f| %>
+      <div class="field">
+        <%= f.label :title, "Title" %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :opinion, "Opinion" %>
+        <%= f.text_area :opinion %>
+      </div>
+      <%= f.submit "Update Book", class:"btn btn-succecc" %>
+      <% end %>
+    </div>
+  </div>
+</div>
