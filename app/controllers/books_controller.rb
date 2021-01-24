@@ -8,12 +8,13 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.new(book_params)
     if @book.save
-      redirect_to root_path
+      redirect_to user_path(current_user)
     end
   end
   
   def show
     @book = Book.find(params[:id])
+    @comment = Comment.new
   end
   
   def edit

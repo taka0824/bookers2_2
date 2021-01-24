@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <%= attachment_image_tag @user, :profile_image, size: "80x80", fallback: "no_image.jpg", size: "80x80" %>
+      <%= attachment_image_tag user, :profile_image, size: "80x80", fallback: "no_image.jpg", size: "80x80" %>
     </div>
   </div>
   <div class="row">
@@ -19,6 +19,18 @@
         <tr>
           <td>introduction</td>
           <td><%= user.introduction %></td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to "follows", user_followings_path(user) %>
+          </td>
+          <td><%= user.following_users.count %></td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to "followers", user_followers_path(user) %>
+          </td>
+          <td><%= user.follower_users.count %></td>
         </tr>
       </table>
     </div>

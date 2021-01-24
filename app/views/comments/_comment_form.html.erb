@@ -1,0 +1,7 @@
+<%= form_with model:[book, comment], local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, class:"form-control",placeholder:"コメントをここに" %>
+  </div>
+  <%= f.submit "送信する", class:"btn btn-primary pull-right" %>
+<% end %>

@@ -22,6 +22,15 @@
           </td>
         </tr>
       </table>
+      <div class="comment-form">
+        <%= render partial: "comments/comment_form", locals: { book: @book, comment: @comment } %>
+      </div>
+      <% if @book.comments.any? %>
+        <div class="comment-index">
+          <h3>コメント一覧</h3>
+          <%= render partial: "comments/comment_index", locals: { book: @book } %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

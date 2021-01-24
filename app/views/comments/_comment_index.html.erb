@@ -1,0 +1,15 @@
+<table class="table">
+  <% book.comments.each do |comment| %>
+    <tr>
+      <td><%= attachment_image_tag comment.user, :profile_image, size: "40x40", fallback: "no_image.jpg", size: "40x40" %></td>
+      <td><%= comment.content %></td>
+      <td>
+        <% if comment.user == current_user %>
+          <%= link_to book_comment_path(book, comment), method: :delete do %>
+            <button class="btn btn-danger">削除</button>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
