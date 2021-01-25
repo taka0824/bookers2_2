@@ -11,6 +11,8 @@
             <td></td>
             <td>Title</td>
             <td>Opinion</td>
+            <td></td>
+            <td></td>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +23,14 @@
               </td>
               <td><%= link_to book.title, book_path(book) %></td>
               <td><%= book.opinion %></td>
+              <td>コメント数：<%= book.comments.count %></td>
+              <td>
+                <% if book.favorited_by?(current_user) %>
+                  <%= link_to "いいねを取り消す", book_favorite_path(book), method: :delete %>
+                <% else %>
+                  <%= link_to "いいねする", book_favorites_path(book), method: :post %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
