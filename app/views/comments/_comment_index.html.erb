@@ -5,7 +5,7 @@
       <td><%= comment.content %></td>
       <td>いいね<%= comment.favorites.count %>件
         <% if comment.favorited_by?(current_user) %>
-          <%= link_to "いいねを取り消す", book_comment_favorite_path(book_id: book.id, comment_id: comment.id), method: :delete %>
+          <%= link_to "いいね取り消す", book_comment_favorite_path(book_id: book.id, comment_id: comment.id), method: :delete %>
         <% else %>
           <%= link_to "いいねする", book_comment_favorites_path(book_id: book.id, comment_id: comment.id), method: :post %>
         <% end %>
