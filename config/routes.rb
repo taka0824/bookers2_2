@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     # favoriteの対象がbookの時は特定のbookのidが必要なのでbooksにネストする
   end
   resources :users, only: [:show, :index, :edit, :update] do
+    get :favorited_book_list, on: :member
+    get :favorited_comment_list, on: :member
     resource :relationships, only: [:create, :destroy]
     # 1ユーザーに対してつけられるフォローは１なのでrelationshipの特定のためのidを持たせる必要はなく、resouceでOK
     get 'followings' => 'relationships#followings', as: 'followings'

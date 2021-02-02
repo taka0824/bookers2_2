@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-3">
+      <%= render partial: "users/sidebar", locals: {user: @user, book: Book.new} %>
+    </div>
+    <div class="col-xs-9">
+      <h2>Favorited Books</h2>
+      <%= render partial: "books/book_list", locals: {books: @favorited_books} %>
+    </div>
+  </div>
+</div>

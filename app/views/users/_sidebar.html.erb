@@ -35,13 +35,13 @@
         <% if user.id == current_user.id %>
           <tr>
             <td>
-              いいね投稿
+              <%= link_to "いいね投稿", favorited_book_list_user_path(user) %>
             </td>
             <td><%= user.favorited_books.count %></td>
           </tr>
           <tr>
             <td>
-              いいねコメント
+              <%= link_to "いいねコメント", favorited_comment_list_user_path(user) %>
             </td>
             <td><%= user.favorited_comments.count %></td>
           </tr>

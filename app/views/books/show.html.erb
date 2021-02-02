@@ -28,7 +28,7 @@
       <% if @book.comments.any? %>
         <div class="comment-index">
           <h3>コメント一覧</h3>
-          <%= render partial: "comments/comment_index", locals: { book: @book } %>
+          <%= render partial: "comments/comment_index", locals: { comments: @book.comments } %>
         </div>
       <% end %>
     </div>
